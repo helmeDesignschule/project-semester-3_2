@@ -8,8 +8,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AgentOverride2d))]
 [RequireComponent(typeof(AgentRotate2d))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class Mover : MonoBehaviour
 {
+    [SerializeField] private float radius = .5f;
+    [SerializeField] private Transform body;
+    
     private NavMeshAgent agent;
 
     private void Awake()
@@ -33,8 +38,25 @@ public class Mover : MonoBehaviour
         agent.isStopped = true;
     }
 
+    //returns the mover position
     public Vector2 GetPosition()
     {
         return transform.position;
     }
+
+    public float GetRadius()
+    {
+        return radius;
+    }
+
+    private void OnValidate()
+    {
+        GetComponent<CircleCollider2D>().radius = radius;
+        GetComponent<NavMeshAgent>().radius = radius;
+        GetComponent<NavMeshAgent>().height = 0;
+        if (body != null)
+            body.localScale = new Vector3(radius * 2, radius * 2, radius * 2);
+    }
+    
+    
 }
