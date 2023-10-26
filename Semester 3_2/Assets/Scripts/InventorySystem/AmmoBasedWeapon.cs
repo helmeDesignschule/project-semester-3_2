@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AmmoBasedWeapon : Weapon
 {
+    [Header("Ammo Based Weapon")]
     public int bulletsPerMagazine;
     public int currentBullets;
 

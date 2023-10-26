@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shotgun : AmmoBasedWeapon
 {
+    [Header("Shotgun")]
     [SerializeField] private int bulletsPerShot = 12;
     [SerializeField] private float sprayAngle = 45;
     [SerializeField] private Bullet shotgunBullet;

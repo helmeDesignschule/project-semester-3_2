@@ -7,10 +7,23 @@ public static class PlayerManager
     private static MoverBase playerMover;
     private static MoverBase emptyMover;
 
+    private static PlayerAxisController playerController;
+    
     public static void SetPlayerMover(MoverBase newMover)
     {
         playerMover = newMover;
     }
+
+    public static void SetPlayerController(PlayerAxisController controller)
+    {
+        playerController = controller;
+    }
+
+    public static PlayerAxisController GetPlayerController()
+    {
+        return playerController;
+    }
+    
     
     public static MoverBase GetPlayerMover()
     {

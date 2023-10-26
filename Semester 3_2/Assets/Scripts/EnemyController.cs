@@ -21,7 +21,18 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Bullet bulletPrefab;
 
     private bool isTargetingPlayer = false;
-    
+
+    private void Awake()
+    {
+        GameLoopManager.onGameStateChange += OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameLoopManager.GameState newState)
+    {
+        if (newState == GameLoopManager.GameState.GameOver)
+            enabled = false;
+    }
+
     void Update()
     {
         if (isTargetingPlayer)
@@ -60,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
+        GameLoopManager.onGameStateChange -= OnGameStateChanged;
         UIController.instance.IncreaseScore(1);
     }
 }
