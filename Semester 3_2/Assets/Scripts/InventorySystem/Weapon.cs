@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public float damage;
     public MoverBase owner;
+    public string displayName;
     
     public void GetEquippedBy(MoverBase owner)
     {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 753155133259523}
   - component: {fileID: 4827973696278529499}
   m_Layer: 0
-  m_Name: Shotgun
+  m_Name: SurroundGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   owner: {fileID: 0}
-  displayName: Shotgun
+  displayName: DeathCircle
   bulletsPerMagazine: 1
   currentBullets: 1
   timeBetweenBullets: 1
   reloadTime: 0
-  bulletsPerShot: 12
-  sprayAngle: 45
+  bulletsPerShot: 300
+  sprayAngle: 180
   shotgunBullet: {fileID: 2319303252503737391, guid: d144823bf91c24d498225c6067335585, type: 3}
