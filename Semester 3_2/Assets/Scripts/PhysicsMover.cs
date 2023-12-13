@@ -8,6 +8,7 @@ using UnityEngine;
 public class PhysicsMover : MoverBase
 {
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Animator animator;
 
     private Rigidbody2D rigidBody;
 
@@ -19,5 +20,15 @@ public class PhysicsMover : MoverBase
     public void MoveInDirection(Vector2 direction)
     {
         rigidBody.AddForce(direction * movementSpeed, ForceMode2D.Force);
+        if (direction.magnitude > 0)
+        {
+            animator.SetFloat("moveDirectionX", direction.x);
+            animator.SetFloat("moveDirectionY", direction.y);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        animator.SetFloat("moveSpeed", rigidBody.velocity.magnitude);
     }
 }

@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //TODO
-    // x Keeping distance to player
-    // x Targeting time
-    // x Targeting the Player
-    // x Shooting a projectile
-    // - Player takes damage
-    // - Line of sight?
-    
     [SerializeField] private Mover mover;
     [SerializeField] private EnemyAnimator animator;
     [SerializeField] private float preferredDistanceToPlayer = 4;

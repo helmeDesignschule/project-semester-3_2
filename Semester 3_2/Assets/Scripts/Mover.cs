@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AgentOverride2d))]
-[RequireComponent(typeof(AgentRotate2d))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
 public class Mover : MoverBase
@@ -22,6 +21,7 @@ public class Mover : MoverBase
         //we know that the component has to be attached
         //to the same game object because we use RequireComponent.
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
     }
 
     

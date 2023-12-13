@@ -60,6 +60,11 @@ public class UIController : MonoBehaviour
         GameLoopManager.StartNewGame();
     }
 
+    public void BackToMainMenu()
+    {
+        GameLoopManager.EnterMainMenu();
+    }
+
     private void OnEnable()
     {
         instance = this;

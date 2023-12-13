@@ -13,11 +13,13 @@ public class Bullet : MonoBehaviour
 
     public MoverBase shooter;
 
+    private Vector2 direction;
+
     public void Shoot(MoverBase shooter, Vector2 targetedPosition)
     {
         this.shooter = shooter;
         
-        Vector2 direction = targetedPosition - shooter.GetPosition();
+        direction = targetedPosition - shooter.GetPosition();
         direction.Normalize();
         
         Physics2D.IgnoreCollision(shooter.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -37,7 +39,7 @@ public class Bullet : MonoBehaviour
         
         HealthPointManager target = col.collider.GetComponent<HealthPointManager>();
         if (target != null)
-            target.DealDamage(damage);
+            target.DealDamage(damage, direction);
         Destroy(gameObject);
     }
 

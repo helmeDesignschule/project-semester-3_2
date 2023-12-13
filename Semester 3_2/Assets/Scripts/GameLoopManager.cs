@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +6,7 @@ public static class GameLoopManager
 {
     public enum GameState
     {
+        MainMenu,
         Playing,
         GameOver
     }
@@ -37,9 +36,15 @@ public static class GameLoopManager
             onGameStateChange(state);
     }
 
+    public static void EnterMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        SetGameState(GameState.MainMenu);
+    }
+    
     public static void StartNewGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
         SetGameState(GameState.Playing);
     }
 }
